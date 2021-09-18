@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Metro Routes</title>
+</head>
+<body>
+    <div class="section">
+        <div class="heading">Find Your Metro Routes</div>
+        <div class="subSection">
+            <a href="/sample">Sample</a>
+            <img src="/cover.jpeg">
+            <form action="#" th:action="@{/sample}" th:object="${SourceDestStations}" method="post">
+                <p> Source:
+                    <select th:field="*{source}">
+                        <option th:each="p: ${form}" th:value="${p.stationList}" th:text="${p.stationList}"/>
+                    </select>
+                </p>
+                <p> Destination:
+                    <select th:field="*{destination}">
+                        <option th:each="p: ${stationList}" th:value="${p}" th:text="${p}"/>
+                    </select>
+                </p>
+                <p><input type="submit" value="Submit" />Submit <input type="reset" value="Reset" /></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
